@@ -16,9 +16,11 @@ export default function ({ color }: HeaderProps) {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-[#F8F4F9] mt-0">
+    <SafeAreaView className="flex-1 bg-[#F8F4F9] mt-0 ">
       <View className="flex-row items-center justify-between px-4 border-b border-blue-500">
-        <Ionicons name="arrow-back-circle-outline" size={28} color={color} />
+        <Pressable onPress={() => router.back()}>
+          <Ionicons name="arrow-back-circle-outline" size={28} color={color} />
+        </Pressable>
         <CustomHeader title="Messages" color="#1A2B60" />
         <Feather name="more-vertical" size={24} color={color} />
       </View>

@@ -18,7 +18,7 @@ export interface HeaderProps {
   title: string;
   showBackButton?: boolean;
   onBackPress?: () => void;
-  color?: "white" | "black" | "blue" | "#1A2B60";
+  color?: "white" | "black" | "blue" | "#1A2B60" |"#007EA7"|"#1A2B60";
   className?: string;
 }
 export interface VideoProps {

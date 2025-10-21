@@ -5,18 +5,28 @@ import EvilIcons from "@expo/vector-icons/EvilIcons";
 import Feather from "@expo/vector-icons/Feather";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { useRouter } from "expo-router";
 import React from "react";
 import { FlatList, Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function App({ color = "#1A2B60" }: HeaderProps) {
+  const router = useRouter();
+
+  const handleMessage = (id: string) => {
+    router.push("/(tabs)/messages");
+  };
   return (
     <SafeAreaView className="flex-1 bg-[#F8F4F9] mt-0">
-      <View className="flex-row items-center justify-between px-4 border-b border-blue-500 ">
+      <View className="flex-row items-center justify-between px-2 border-b border-blue-500  ">
         <CustomHeader title="Gigs" color="#1A2B60" />
         <View className="flex-row  gap-4 border-blue-500 rounded-lg p-1">
-          <Ionicons name="search-outline" size={28} color={color} />
-          <Feather name="message-circle" size={26} color={color} />
+          <Pressable>
+            <Ionicons name="search-outline" size={28} color={color} />
+          </Pressable>
+          <Pressable onPress={() => handleMessage("header")}>
+            <Feather name="message-circle" size={26} color={color} />
+          </Pressable>
         </View>
       </View>
       <View className="mt-2">
@@ -55,7 +65,7 @@ export default function App({ color = "#1A2B60" }: HeaderProps) {
                   />
                   <View className="flex-1 flex-row justify-between px-2 pt-2">
                     <Text>{item.name}</Text>
-                    <Feather name="more-horizontal" size={24} color="blue" />
+                    <Feather name="more-vertical" size={24} color="blue" />
                   </View>
                 </View>
                 <View className="flex-1 flex-row justify-between px-2 ">
